@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D3.js Example</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js CDN -->
+</head>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25];
+    d3.select("body").selectAll("h2")
+      .data(dataset) // Attach data to the selection
+      .enter()       // Handle missing elements
+      .append("h2")  // Add a new <h2> for each data point
+      .text((d) => d + " USD") // Set the text content
+      .style("color", (d) => d < 20 ? "red" : "green"); // Conditional styling
+  </script>
+</body>
+</html>
