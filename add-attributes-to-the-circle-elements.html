@@ -6,47 +6,45 @@
   <script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3.js CDN -->
   <title>Document</title>
 </head>
-
 <body>
   <script>
-    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+    const dataset = [
+                  [ 34,    78 ],
+                  [ 109,   280 ],
+                  [ 310,   120 ],
+                  [ 79,    411 ],
+                  [ 420,   220 ],
+                  [ 233,   145 ],
+                  [ 333,   96 ],
+                  [ 222,   333 ],
+                  [ 78,    320 ],
+                  [ 21,    123 ]
+                ];
+
 
     const w = 500;
-    const h = 100;
+    const h = 500;
 
     const svg = d3.select("body")
                   .append("svg")
                   .attr("width", w)
                   .attr("height", h);
 
-    svg.selectAll("rect")
+    svg.selectAll("circle")
        .data(dataset)
        .enter()
-       .append("rect")
-       .attr("x", (d, i) => i * 30)
-       .attr("y", (d, i) => h - 3 * d)
-       .attr("width", 25)
-       .attr("height", (d, i) => 3 * d)
-       .attr("fill", "navy");
-
-    svg.selectAll("text")
-       .data(dataset)
-       .enter()
+       .append("circle")
        // Add your code below this line
-       .append("text") 
-       .attr("x", (d,i)=> i*30 + 5)
-       .attr("y",(d,i)=> h -3* d - 3) 
-       .text((d)=>d)
-      
-
+       .attr("cx",(d)=>d[0])
+       .attr("cy",(d)=>h - d[1])
+       .attr("r",5)
 
 
        // Add your code above this line
+
   </script>
-<body>
+</body>
 </html>
-
-
 
 
 
